@@ -2,6 +2,9 @@ import re
 import os
 import math
 
+import tkinter as tk
+from tkinter import filedialog
+
 epsilon = 0.000001
 
 # in degrees
@@ -89,3 +92,18 @@ for i in range(0, splineCount):
   f.write("\n\n\n")
 
 f.close()
+
+window = tk.Tk(screenName="Airfoil Generator", baseName="Airfoil Generator")
+
+greeting = tk.Label(text="Hello, Tkinter")
+greeting.pack()
+
+def selectFileCallback():
+  file = filedialog.askopenfile(parent=window, mode='rb', title='Choose a file')
+  greeting.configure(text=file)
+
+selectFile = tk.Button(text="Select File", command= selectFileCallback);
+selectFile.pack()
+
+
+window.mainloop()
