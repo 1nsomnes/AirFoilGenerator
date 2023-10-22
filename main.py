@@ -1,5 +1,6 @@
 import tkinter as tk
 from tkinter import filedialog
+import os
 
 import scriptGenerator as sg
 import errorChecking as ec
@@ -46,9 +47,14 @@ def generateCallback():
 
   errorLabel.configure(text="")
 
+  if os.path.exists("results.scr"):
+    os.remove("results.scr")
+
   f = open("results.scr", "x")
   f.write(sg.generateSplines(datFilePath))
   f.close()
+
+  errorLabel.configure(text="Success: results.scr generated", fg="green")
 
 tk.Label(text="Airfoil Generator", font=("Arial",30)).grid(row=0, columnspan=4, pady=10, padx=10)
 
