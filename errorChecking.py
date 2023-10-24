@@ -1,5 +1,7 @@
 def isNumeric(*args) -> bool:
     for arg in args:
-        if not arg.isnumeric():
+        try:
+            float(arg)
+        except ValueError:
             return False
     return True

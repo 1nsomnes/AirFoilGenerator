@@ -7,7 +7,8 @@ epsilon = 0.000001
 totalRotation = 30
 totalHeight = 10
 
-wingScale = 1.5
+wingScaleX = 1.5
+wingScaleY = 1.5
 convergenceX = 0
 convergenceY = 0
 splineCount = 5
@@ -37,8 +38,8 @@ def calculateXY(x: float, y: float, inversePercent: float, percent: float) -> tu
   x = math.cos(newAngle) * hyp
   y = math.sin(newAngle) * hyp
 
-  x = x * wingScale
-  y = y * wingScale
+  x = x * wingScaleX
+  y = y * wingScaleY
   return (x, y)
 
 def makeCoordString(x: float, y: float, z:float) -> str:
